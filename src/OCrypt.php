@@ -12,9 +12,9 @@ class OCrypt {
 	/**
 	 * Sets encryption key on startup if given
 	 *
-	 * @param string $key Encryption string key
+	 * @param string | null $key Encryption string key
 	 */
-	function __construct(?string $key=null) {
+	function __construct(string | null $key = null) {
 		if (!is_null($key)) {
 			$this->setKey($key);
 		}
@@ -57,11 +57,11 @@ class OCrypt {
 	 *
 	 * @param string $data String data to be encrypted
 	 *
-	 * @param string $key Key string to be used to encrypt data
+	 * @param string | null $key Key string to be used to encrypt data
 	 *
 	 * @return string Encrypted string
 	 */
-	function encrypt(string $data, ?string $key=null): string {
+	function encrypt(string $data, string | null $key = null): string {
 		if (is_null($key)) {
 			$key = $this->key;
 		}
@@ -76,11 +76,11 @@ class OCrypt {
 	 *
 	 * @param string $data String data to be decrypted
 	 *
-	 * @param string $key Key string to be used to decrypt data
+	 * @param string | null $key Key string to be used to decrypt data
 	 *
 	 * @return string Decrypted string
 	 */
-	public function decrypt(string $data, ?string $key=null): string {
+	public function decrypt(string $data, string | null $key = null): string {
 		if (is_null($key)) {
 			$key = $this->key;
 		}
